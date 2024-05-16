@@ -6,7 +6,7 @@
 %>
 <%inherit file="../main.html" />
 <%
-  course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
+  course_discovery_enabled = false
 %>
 
 <%namespace name='static' file='../static_content.html'/>
@@ -85,8 +85,8 @@
           </div>
         </div>
       % endif
-       
 
+        % if user.is_authenticated:
         <div class="course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
           <ul class="courses-listing courses-list">
             %for course in courses:
@@ -96,6 +96,8 @@
             %endfor
           </ul>
         </div>
+        % endif
+
       </section>
     </section>
 </main>
