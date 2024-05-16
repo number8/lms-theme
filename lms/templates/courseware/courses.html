@@ -84,8 +84,20 @@
             </div>
           </div>
         </div>
-      % endif
-
+        % endif
+        <button type="button" class="button postfix discovery-submit" id="print" title="${_('Print')}">
+          Print
+        </button>
+        <script type="text/javascript">
+          (function() {
+            $("#print").click(function(event) {
+              console.log(user)
+              event.preventDefault();
+            });
+          })(this)
+        </script>
+        user: ${user}
+        user.is_authenticated: ${user.is_authenticated}
         % if user.is_authenticated:
         <div class="course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
           <ul class="courses-listing courses-list">
