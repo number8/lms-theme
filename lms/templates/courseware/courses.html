@@ -6,7 +6,7 @@
 %>
 <%inherit file="../main.html" />
 <%
-  course_discovery_enabled = false
+  course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
 %>
 
 <%namespace name='static' file='../static_content.html'/>
@@ -42,7 +42,7 @@
           <p>Explore a world of knowledge and enhance your skills with our diverse range of courses</p>
         </div>
         <!-- NEW IN INDIGO Modified search bar and filters. -->
-        % if course_discovery_enabled:
+        % if user.is_authenticated and course_discovery_enabled:
           <div class="saerch-bar-discover">
             <div class="dropdown filter-block">
               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,8 +84,7 @@
             </div>
           </div>
         </div>
-      % endif
-
+        % endif
         % if user.is_authenticated:
         <div class="course-holder courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
           <ul class="courses-listing courses-list">
