@@ -62,7 +62,7 @@
                     <tr>
                         <td width="70">
                             <a href="{% with_link_tracking homepage_url %}"><img
-                                    src="https://learn.number8.com/theming/asset/images/logo.png" width="auto"
+                                    src="https://learn.number8.com/static/lms-theme/images/logo.1b2b391b4594.png" width="auto"
                                     height="40" alt="{% filter force_escape %}{% blocktrans %}Go to {{ platform_name }} Home Page{% endblocktrans %}{% endfilter %}"/></a>
                         </td>
                         <td align="right" style="text-align: {{ LANGUAGE_BIDI|yesno:"left,right" }};">
@@ -171,10 +171,7 @@
                     <tr>
                         <!-- COPYRIGHT -->
                         <td>
-                            &copy; {% now "Y" %} MITx, {% trans "All rights reserved" as tmsg %}{{ tmsg | force_escape }}.<br/>
-                            <br/>
-                            {% trans "Our mailing address is" as tmsg %}{{ tmsg | force_escape }}:<br/>
-                            MIT Open Learning<br/>600 Technology Square, 2nd Floor<br/>Cambridge, MA 02139<br/>USA
+                            &copy; {% now "Y" %} Number 8, {% trans "All rights reserved" as tmsg %}{{ tmsg | force_escape }}.<br/>
                         </td>
                     </tr>
                     {% if unsubscribe_url %}
